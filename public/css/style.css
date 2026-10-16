@@ -1,0 +1,24 @@
+/* ==========================================
+   FIX: Biar form gak ketimpa slider
+   ========================================== */
+
+/* Kasih background dan posisi di atas slider */
+main {
+    position: relative;
+    z-index: 10;
+    background-color: #f8f9fa; /* Warna background biar nutupin slider */
+    padding-top: 20px;
+}
+
+/* Pastikan slider tetap di bawah form */
+.slider-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Pastikan dropdown select bisa diklik dan gak ketutupan */
+select.form-select {
+    position: relative;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}

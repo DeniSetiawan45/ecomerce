@@ -1,0 +1,223 @@
+/* Reset hanya untuk komponen banner */
+.banner-wrapper,
+.banner-wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pembungkus banner */
+.banner-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #faf0e6; /* warna cream */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Kontainer slide (horizontal) */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+/* Setiap slide */
+.slide {
+    min-width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    text-decoration: none;
+    color: #2d2a24;
+    position: relative;
+    background: #faf0e6; /* cream fallback */
+    cursor: pointer;
+}
+
+/* Jika tidak ada gambar, background tetap cream */
+.slide.no-image {
+    background: #faf0e6;
+}
+
+/* Sembunyikan gambar jika tidak ada */
+.slide.no-image .slide-img {
+    display: none;
+}
+
+/* Konten teks */
+.slide-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.slide-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.slide-content p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 16px;
+}
+
+.slide-content .btn {
+    display: inline-block;
+    padding: 10px 28px;
+    background: #1f1b16;
+    color: #faf0e6;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.slide:hover .btn {
+    background: #3d352c;
+}
+
+/* Gambar slide (sebelah kanan) */
+.slide-img {
+    width: 40%;
+    max-height: 80%;
+    object-fit: contain;
+    margin-left: 20px;
+    border-radius: 12px;
+    opacity: 0.7;
+}
+
+/* Tombol navigasi */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 248, 240, 0.8);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-btn:hover {
+    background: #ffffff;
+}
+
+.prev {
+    left: 16px;
+}
+.next {
+    right: 16px;
+}
+
+/* Indikator dots */
+.dots {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    background: rgba(255, 248, 240, 0.6);
+    padding: 8px 16px;
+    border-radius: 30px;
+    backdrop-filter: blur(4px);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(45, 42, 36, 0.25);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: #2d2a24;
+    transform: scale(1.2);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .slide {
+        height: 260px;
+        padding: 0 24px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .slide-content h2 {
+        font-size: 1.6rem;
+    }
+    .slide-content p {
+        font-size: 0.9rem;
+    }
+    .slide-img {
+        width: 60%;
+        margin-left: 0;
+        margin-top: 12px;
+        max-height: 60%;
+    }
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+    .prev {
+        left: 8px;
+    }
+    .next {
+        right: 8px;
+    }
+    .dots {
+        padding: 6px 12px;
+        gap: 6px;
+        bottom: 12px;
+    }
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        height: 220px;
+        padding: 0 16px;
+    }
+    .slide-content h2 {
+        font-size: 1.2rem;
+    }
+    .slide-content p {
+        font-size: 0.75rem;
+    }
+    .slide-content .btn {
+        padding: 6px 18px;
+        font-size: 0.7rem;
+    }
+    .slide-img {
+        width: 50%;
+    }
+    .nav-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}
